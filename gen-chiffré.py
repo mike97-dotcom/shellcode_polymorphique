@@ -25,7 +25,7 @@ def read_asm_code():
     random.shuffle(random_code)
 
     # Ouvrir le fichier 'shellcodeT.asm' en mode lecture et écriture
-    with open('shellcodeT.asm', 'r+') as file:
+    with open('shellcode.asm', 'r+') as file:
         # Lire et ignorer les trois premières lignes du fichier
         for _ in range(3):
             file.readline()
@@ -43,8 +43,8 @@ def read_asm_code():
         content = file.readlines()
 
     # Utiliser NASM et ld pour assembler le fichier assembleur en un fichier objet puis en exécutable
-    subprocess.run(["nasm", "-f", "elf64", "shellcodeT.asm", "-o", "shellcodeT.o"])
-    subprocess.run(["ld", "shellcodeT.o", "-o", "shellcodeT"])
+    subprocess.run(["nasm", "-f", "elf64", "shellcode.asm", "-o", "shellcode.o"])
+    subprocess.run(["ld", "shellcode.o", "-o", "shellcodeT"])
     objdump_output = subprocess.run(
         "objdump -d shellcodeT | grep '^ ' | cut -f2 | awk '{for(i=1;i<=NF;i++) printf \"\\\\x%s\",$i} END {print\"\"}'",
         shell=True, capture_output=True, text=True

@@ -1,12 +1,12 @@
 global _start
 section .text
 _start:
-	xor rsi,rsi
-	xor rax,rax
-	xor rdx,rdx
 	xor rdi,rdi
+	xor rax,rax
 	xor rcx,rcx
+	xor rsi,rsi
 	xor rbx,rbx
+	xor rdx,rdx
 
     mov al, 41 ; RAX prends la valeur 41 (numéro du syscall SYS_SOCKET)
 	mov dil, 2 ; RDI prends la valeur 2 pour le “domain” AF_INET (IPv4)
