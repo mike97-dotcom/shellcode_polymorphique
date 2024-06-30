@@ -16,31 +16,29 @@ def read_asm_code():
         '\txor rcx,rcx\n',
         '\txor rax,rax\n',
         '\txor rbx,rbx\n',
-        '\txor rsi,rsi\n',
         '\txor rdi,rdi\n',
         '\txor rdx,rdx\n'
     ]
 
     # Mélanger les instructions pour qu'elles soient dans un ordre aléatoire
+    number = random.randint(3,6)
     random.shuffle(random_code)
+    selected_code = random_code[:number]
 
     # Ouvrir le fichier 'shellcodeT.asm' en mode lecture et écriture
     with open('shellcode.asm', 'r+') as file:
         # Lire et ignorer les trois premières lignes du fichier
-        for _ in range(3):
-            file.readline()
+       content = file.readlines()
+        specific_xor = {'xor rax,rax', 'xor rbx,rbx', 'xor rcx,rcx', 'xor rdx,rdx', 'xor rdi,rdi'}
+        content = [line for line in content if not any(line.strip() == xor for xor in specific_xor)]
 
-        # Obtenir la position actuelle dans le fichier après les trois premières lignes
-        position = file.tell()
-
-        # Revenir à cette position pour insérer le code aléatoire
-        file.seek(position)
-
-        # Écrire les instructions aléatoires dans le fichier
-        for code in random_code:
-            file.write(code)
+        insert_pos = 3
+        for code in selected_code:
+            content.insert(insert_pos, code)
+            insert_pos += 1
         file.seek(0)
-        content = file.readlines()
+        file.writelines(content)
+        file.truncate()
 
     # Utiliser NASM et ld pour assembler le fichier assembleur en un fichier objet puis en exécutable
     subprocess.run(["nasm", "-f", "elf64", "shellcode.asm", "-o", "shellcode.o"])
