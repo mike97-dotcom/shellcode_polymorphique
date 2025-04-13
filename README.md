@@ -1,11 +1,24 @@
-# Generate-Poly-Shellcode-in-Python
+# 🛡️ Shellcode Polymorphique en Python
 
-**by Mariam CISSE and Mike Arthur NYOGA - 4SI4 ESGI**
+**Mike Arthur NYOGA - 4SI4 ESGI**
 
-## **Description**
-Implémentation d'un générateur de shellcode métamorphique en python. l'objectif etant que le shellcode fasse un reverse shell depuis une machine distante 
-### **Prérequis**:
-	Installé Python3.x 
+Ce projet est un **générateur de shellcode polymorphique** écrit en Python 🐍. Il permet de produire des shellcodes ayant pour but d'effectuer un reverse shell sur une machine distante.
 
- ## **Utilisation**
-     python3  final_shellcode.py
+⚠️ **Disclaimer**  
+Ce projet a été realisé dans un cadre scolaire et est fournit  à titre éducatif uniquement. Toute utilisation malveillante ou abusive de ce programme est strictement interdite.
+
+---
+
+## 🚀 Fonctionnalités
+
+- Génération de shellcodes polymorphiques aléatoires 🎲.
+- Reverse shell ✨.
+
+---
+
+## 🛠️ Installation
+
+1. Clonez le dépôt :  
+   ```bash
+   git 
+   cd shellcode-polymorphic-generator
