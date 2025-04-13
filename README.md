@@ -1,6 +1,6 @@
 # 🛡️ Shellcode Polymorphique en Python
 
-** Mariam Cisse and Mike Arthur NYOGA - 4SI4 ESGI**
+**Mariam Cisse and Mike Arthur NYOGA - 4SI4 ESGI**
 
 Ce projet est un **générateur de shellcode polymorphique** écrit en Python 🐍. Il permet de produire des shellcodes ayant pour but d'effectuer un reverse shell sur une machine distante.
 
